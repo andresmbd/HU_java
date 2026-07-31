@@ -11,17 +11,13 @@ public class App {
                     _____________________________________
                             
                             Corporate Talent Hub
-                        Gestion del talento humano
+                         Gestion del talento humano
                     _____________________________________
                             """;
         System.out.println(encabezado);
         
+        
         Empleado empleado = instanciarEmpleado();
-        
-        
-        
-        
-       
         
         
     }

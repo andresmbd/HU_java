@@ -19,6 +19,7 @@ public class Empleado {
     private char tipoContrato;
     private boolean esActivo;
     
+    String nombre;
     private double bonusMensual;
     private int edad;
     private int idSede;
@@ -34,6 +35,7 @@ public class Empleado {
         char tipoContrato,
         boolean esActivo,
         
+        String nombre,
         double bonusMensual,
         int edad,
         int idSede
@@ -48,10 +50,45 @@ public class Empleado {
         this.tipoContrato=tipoContrato;
         this.esActivo=esActivo;
         
+        this.nombre =nombre;
         this.bonusMensual=bonusMensual;
         this.edad = edad;
         this.idSede = idSede;
     }
+    
+    
+    public String getNombre(String nombre) {
+        return nombre;
+    }
+    
+    public void setNombre(String nombre){
+        this.nombre=nombre;
+    }
+    
+    public double getBonusMensual(double bonusMensual) {
+        return bonusMensual;
+    }
+    
+    public void setBonusMensual(double bonusMensual){
+        this.bonusMensual=bonusMensual;
+    }
+    
+    public int getEdad(int edad) {
+        return edad;
+    }
+    
+    public void setEdad(int edad){
+        this.edad=edad;
+    }
+    
+    public int getIdSede(int idSede) {
+        return idSede;
+    }
+    
+    public void setIdSede(int idSede){
+        this.idSede=idSede;
+    }
+    
     
     public byte getNivelAcceso(byte nivelEmpleado) {
         return nivelEmpleado;
