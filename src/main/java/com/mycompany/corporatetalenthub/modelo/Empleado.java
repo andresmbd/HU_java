@@ -57,7 +57,7 @@ public class Empleado {
     }
     
     
-    public String getNombre(String nombre) {
+    public String getNombre() {
         return nombre;
     }
     
@@ -65,7 +65,7 @@ public class Empleado {
         this.nombre=nombre;
     }
     
-    public double getBonusMensual(double bonusMensual) {
+    public double getBonusMensual() {
         return bonusMensual;
     }
     
@@ -73,7 +73,7 @@ public class Empleado {
         this.bonusMensual=bonusMensual;
     }
     
-    public int getEdad(int edad) {
+    public int getEdad() {
         return edad;
     }
     
@@ -81,7 +81,7 @@ public class Empleado {
         this.edad=edad;
     }
     
-    public int getIdSede(int idSede) {
+    public int getIdSede() {
         return idSede;
     }
     
@@ -90,15 +90,15 @@ public class Empleado {
     }
     
     
-    public byte getNivelAcceso(byte nivelEmpleado) {
-        return nivelEmpleado;
+    public byte getNivelAcceso() {
+        return nivelAcceso;
     }
     
     public void setNivelEmpleado(byte nivelAcceso){
         this.nivelAcceso = nivelAcceso;
     }
     
-    public short getAnioIngreso(short anioIngreso) {
+    public short getAnioIngreso() {
         return anioIngreso;
     }
     
@@ -106,7 +106,7 @@ public class Empleado {
         this.nivelAcceso = nivelAcceso;
     }
     
-     public int getIdEmpleado(int idEmpleado) {
+     public int getIdEmpleado() {
         return idEmpleado;
     }
     
@@ -114,7 +114,7 @@ public class Empleado {
         this.idEmpleado = idEmpleado;
     }
     
-    public long getNumeroDocumento(long numeroDocumento) {
+    public long getNumeroDocumento() {
         return numeroDocumento;
     }
     
@@ -122,7 +122,7 @@ public class Empleado {
         this.numeroDocumento = numeroDocumento;
     }
     
-     public float getPuntajeTest(float puntajeTest) {
+     public float getPuntajeTest() {
         return puntajeTest;
     }
      
@@ -130,7 +130,7 @@ public class Empleado {
         this.puntajeTest = puntajeTest;
     }
     
-    public double getSalario(double salario) {
+    public double getSalario() {
         return salario;
     }
     
@@ -138,7 +138,7 @@ public class Empleado {
         this.salario = salario;
     }
     
-    public char getTipoContrato(char tipoContrato) {
+    public char getTipoContrato() {
         return tipoContrato;
     }
     
@@ -146,11 +146,11 @@ public class Empleado {
         this.tipoContrato = tipoContrato;
     }
     
-    public boolean getTipoContrato(boolean esActivo) {
+    public boolean getEsActivo() {
         return esActivo;
     }
     
-    public void setTipoContrato(boolean esActivo){
+    public void setEsActivo(boolean esActivo){
         this.esActivo = esActivo;
     }
     
@@ -167,11 +167,12 @@ public class Empleado {
         return (salario + (bonusMensual * 1.10))-(salario * 0.05);
     }
     
-    public void bonoExtra(double extra){
-        if(idEmpleado % 2 == 0)
-        {
+    public double bonoExtra(double extra){
+        if(idEmpleado % 2 == 0) {
             bonusMensual += extra;
-        }
+            return extra;
+            
+        }else return extra = 0;
     }
     
     public boolean validarElegibilidad(){
