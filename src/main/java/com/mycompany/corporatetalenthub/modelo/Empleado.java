@@ -12,17 +12,19 @@ public class Empleado {
     //
     private byte nivelAcceso;
     private short anioIngreso;
-    private int idEmpleado;
+    private  int idEmpleado;
     private long numeroDocumento;
     private float puntajeTest;
-    private double salario;
+    private  double salario;
     private char tipoContrato;
     private boolean esActivo;
     
-    String nombre;
+    private  String nombre;
     private double bonusMensual;
-    private int edad;
+    private  int edad;
     private int idSede;
+    
+    private double promedioDesempeno;
     
     
     public Empleado(
@@ -61,7 +63,7 @@ public class Empleado {
         return nombre;
     }
     
-    public void setNombre(String nombre){
+    public void setNombre(String nombre) {
         this.nombre=nombre;
     }
     
@@ -77,7 +79,7 @@ public class Empleado {
         return edad;
     }
     
-    public void setEdad(int edad){
+    public void setEdad(int edad) {
         this.edad=edad;
     }
     
@@ -110,9 +112,9 @@ public class Empleado {
         return idEmpleado;
     }
     
-    public void setIdEmpleado(byte idEmpleado){
-        this.idEmpleado = idEmpleado;
-    }
+     public void getIdEmpleado(int idEmpleado) {
+        this.idEmpleado=idEmpleado;
+    } 
     
     public long getNumeroDocumento() {
         return numeroDocumento;
@@ -134,9 +136,10 @@ public class Empleado {
         return salario;
     }
     
-    public void setSalario(double salario){
+    public void setSalario(double  salario){
         this.salario = salario;
     }
+
     
     public char getTipoContrato() {
         return tipoContrato;
@@ -153,6 +156,19 @@ public class Empleado {
     public void setEsActivo(boolean esActivo){
         this.esActivo = esActivo;
     }
+    
+    
+    public double getPromedioDesempeno()
+    {
+        return promedioDesempeno;
+    }
+    
+    public void setPromedioDesempeno(double promedioDesempeno)
+    {
+        this.promedioDesempeno=promedioDesempeno;
+    }
+    
+    
     
     public double calcularSalarioFinal()
     {
