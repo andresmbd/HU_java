@@ -40,7 +40,7 @@ public class App {
             return new Empleado(
                     (byte)4,
                     (short)5, 
-                    6, 
+                    3, 
                     123_456_789, 
                     97.2f, 
                     570_000, 
