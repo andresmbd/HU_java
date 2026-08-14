@@ -1,14 +1,21 @@
-
-
 package com.mycompany.corporatetalenthub;
 import com.mycompany.corporatetalenthub.modelo.Empleado;
 import com.mycompany.corporatetalenthub.modelo.EmpresaRecord;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import com.mycompany.corporatetalenthub.modelo.EmpleadoManager;
 
 public class App {
+    
+        EmpleadoManager manager = new EmpleadoManager();
+    
+    
 
-    private static final int MAXIMO_EMPLEADOS = 50;
+    // private static final int MAXIMO_EMPLEADOS = 50;
     private static final int CANTIDAD_TRIMESTRES = 3;
     private static final double NOTA_MINIMA = 0.0;
     private static final double NOTA_MAXIMA = 100.0;
@@ -44,90 +51,150 @@ public class App {
         comparacionDeObjetos();
 
 
-        try (var scanner = new Scanner(System.in)) {
-            var empleados = new Empleado[MAXIMO_EMPLEADOS];
-            var calificaciones = new double[MAXIMO_EMPLEADOS][CANTIDAD_TRIMESTRES];
-            var cantidadEmpleados = 0;
-            var sistemaActivo = true;
-
-            do {
-                mostrarMenu();
-
-                try {
-                    System.out.print("Seleccione una opción: ");
-                    var opcion = scanner.nextInt();
-                    scanner.nextLine(); // Consume el salto de línea pendiente.
-
-                    /*
-                     * Switch tradicional, compatible con Java 8.
-                     * Cada case necesita break para impedir el fall-through. Si se
-                     * olvida, Java continúa ejecutando el siguiente case. La Switch
-                     * Expression moderna con -> no tiene ese riesgo por defecto y,
-                     * además, puede producir directamente un valor.
-                     */
-                    switch (opcion) {
-                        case 1:
-                            if (cantidadEmpleados >= MAXIMO_EMPLEADOS) {
-                                System.out.println("No hay espacio para más empleados.");
-                            } else {
-                                var registrado = registrarEmpleado(
-                                        scanner,
-                                        empleados,
-                                        calificaciones,
-                                        cantidadEmpleados);
-
-                                if (registrado) {
-                                    cantidadEmpleados++;
-                                }
-                            }
-                            break;
-
-                        case 2:
-                            mostrarReporte(
-                                    empleados,
-                                    calificaciones,
-                                    cantidadEmpleados);
-                            break;
-
-                        case 3:
-                            mostrarCategoriasSalariales();
-                            break;
-
-                        case 0:
-                            sistemaActivo = false;
-                            System.out.println("Sesión finalizada.");
-                            break;
-
-                        default:
-                            System.out.println("Opción fuera del menú.");
-                            break;
-                    }
-                } catch (InputMismatchException excepcion) {
-                    System.out.println(
-                            "Entrada inválida. Debe escribir un valor numérico "
-                                    + "del tipo solicitado.");
-
-                    // Descarta la entrada que provocó la excepción. Sin esta línea,
-                    // Scanner intentaría leer el mismo dato inválido nuevamente.
-                    scanner.nextLine();
-
-                    /*
-                     * Java 8 ya entrega el tipo de excepción y el stack trace. Las
-                     * versiones modernas mejoraron especialmente algunos diagnósticos,
-                     * como Helpful NullPointerExceptions desde Java 14, indicando qué
-                     * referencia era null en una expresión. Esto no significa que el
-                     * mensaje de toda InputMismatchException sea siempre más detallado;
-                     * por eso la aplicación muestra un mensaje comprensible al usuario.
-                     */
-                }
-            } while (sistemaActivo);
-        }
+//        try (var scanner = new Scanner(System.in)) {
+//            var empleados = new Empleado[MAXIMO_EMPLEADOS];
+//            var calificaciones = new double[MAXIMO_EMPLEADOS][CANTIDAD_TRIMESTRES];
+//            var cantidadEmpleados = 0;
+//            var sistemaActivo = true;
+//
+//            do {
+//                mostrarMenu();
+//
+//                try {
+//                    System.out.print("Seleccione una opción: ");
+//                    var opcion = scanner.nextInt();
+//                    scanner.nextLine(); // Consume el salto de línea pendiente.
+//
+//                    /*
+//                     * Switch tradicional, compatible con Java 8.
+//                     * Cada case necesita break para impedir el fall-through. Si se
+//                     * olvida, Java continúa ejecutando el siguiente case. La Switch
+//                     * Expression moderna con -> no tiene ese riesgo por defecto y,
+//                     * además, puede producir directamente un valor.
+//                     */
+//                    switch (opcion) {
+//                        case 1:
+//                            if (cantidadEmpleados >= MAXIMO_EMPLEADOS) {
+//                                System.out.println("No hay espacio para más empleados.");
+//                            } else {
+//                                var registrado = registrarEmpleado(
+//                                        scanner,
+//                                        empleados,
+//                                        calificaciones,
+//                                        cantidadEmpleados);
+//
+//                                if (registrado) {
+//                                    cantidadEmpleados++;
+//                                }
+//                            }
+//                            break;
+//
+//                        case 2:
+//                            mostrarReporte(
+//                                    empleados,
+//                                    calificaciones,
+//                                    cantidadEmpleados);
+//                            break;
+//
+//                        case 3:
+//                            mostrarCategoriasSalariales();
+//                            break;
+//
+//                        case 0:
+//                            sistemaActivo = false;
+//                            System.out.println("Sesión finalizada.");
+//                            break;
+//
+//                        default:
+//                            System.out.println("Opción fuera del menú.");
+//                            break;
+//                    }
+//                } catch (InputMismatchException excepcion) {
+//                    System.out.println(
+//                            "Entrada inválida. Debe escribir un valor numérico "
+//                                    + "del tipo solicitado.");
+//
+//                    // Descarta la entrada que provocó la excepción. Sin esta línea,
+//                    // Scanner intentaría leer el mismo dato inválido nuevamente.
+//                    scanner.nextLine();
+//
+//                    /*
+//                     * Java 8 ya entrega el tipo de excepción y el stack trace. Las
+//                     * versiones modernas mejoraron especialmente algunos diagnósticos,
+//                     * como Helpful NullPointerExceptions desde Java 14, indicando qué
+//                     * referencia era null en una expresión. Esto no significa que el
+//                     * mensaje de toda InputMismatchException sea siempre más detallado;
+//                     * por eso la aplicación muestra un mensaje comprensible al usuario.
+//                     */
+//                }
+//            } while (sistemaActivo);
+//        }
         
         
         
     }
+    
 
+    
+    
+    
+    
+    
+    
 
+    
+    public static double promediarSalarioEmpleado(){
+        var suma = 0;
+        
+        for(Empleado emp: empleados)
+        {
+            suma += emp.getSalario();
+        }
+        return suma / cantidadEmpleados();
+    }
+    
+    
+    /*
+    * Java 21 incorpora Sequenced Collections.
+    * Los métodos getFirst() y getLast() permiten
+    * acceder al primer y último elemento de forma
+    * más legible que get(0) y get(size()-1).
+    *
+    * Además, reversed() permite obtener una vista
+    * invertida de la colección sin recorrerla
+    * manualmente ni calcular índices.
+    *
+    * Esto reduce errores de IndexOutOfBoundsException
+    * y mejora la claridad del código.
+    */
+    
+    public static Empleado mostrarPrimerEmpleado(){
+        return empleados.getFirst();
+    }
+    
+    
+    public static Empleado mostrarUltimoEmpleado(){
+        return empleados.getLast();
+    }
+    
+    public static List<Empleado> mostrarEmpleadosReverso(){
+        return  empleados.reversed();
+    }
+    
+    
+    public static void reporteFinal(){
+        
+        System.out.println("     REPORTE FINAL     "
+                       + "\nTotal empleados: " + cantidadEmpleados()
+                        +"\nPromedio salarios: "+ promediarSalarioEmpleado());
+    }
+    
+    
+
+    
+    
+
+    // Sem 2
     private static void mostrarMenu() {
         System.out.println("""
 
@@ -319,6 +386,8 @@ public class App {
     }
     
 
+    
+    // Sem 1
 
      public static Empleado crearEmpleado()
         {

@@ -99,7 +99,7 @@ public class Empleado {
         return idEmpleado;
     }
     
-    public void setIdEmpleado(byte idEmpleado){
+    public void setIdEmpleado(int idEmpleado){
         this.idEmpleado = idEmpleado;
     }
     
