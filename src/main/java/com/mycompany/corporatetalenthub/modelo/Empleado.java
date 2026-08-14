@@ -23,23 +23,12 @@ public class Empleado {
     private double bonusMensual;
     private int edad;
     private int idSede;
+
+    private double promedioDesempeno;
     
     
     public Empleado(
-        byte nivelAcceso,
-        short anioIngreso,
-        int idEmpleado,
-        long numeroDocumento,
-        float puntajeTest,
-        double salario,
-        char tipoContrato,
-        boolean esActivo,
-        
-        String nombre,
-        double bonusMensual,
-        int edad,
-        int idSede
-    )
+            int idEmpleado, String nombre, byte nivelAcceso, double salario)
     {
         this.nivelAcceso = nivelAcceso;
         this.anioIngreso = anioIngreso;
@@ -152,6 +141,14 @@ public class Empleado {
     
     public void setEsActivo(boolean esActivo){
         this.esActivo = esActivo;
+    }
+
+    public double getPromedioDesempeno() {
+        return promedioDesempeno;
+    }
+
+    public void setPromedioDesempeno(double promedioDesempeno) {
+        this.promedioDesempeno = promedioDesempeno;
     }
     
     public double calcularSalarioFinal()
