@@ -11,7 +11,7 @@ import java.util.List;
  * getters, setter y métodos explícitamente. Esa verbosidad es útil cuando el
  * objeto necesita estado mutable, como bonoMensual o nombre.
  */
-public class Empleado {
+public final class Empleado extends Persona {
     //
     private byte nivelAcceso;
     private short anioIngreso;
