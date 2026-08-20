@@ -1,6 +1,9 @@
 
 package com.mycompany.corporatetalenthub.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /***
  * Modelo tradicional Java 8
  * 
@@ -25,6 +28,7 @@ public class Empleado {
     private int idSede;
 
     private double promedioDesempeno;
+    private List<Double> calificaciones;
     
     
     
@@ -44,7 +48,27 @@ public class Empleado {
         this.bonusMensual=bonusMensual;
         this.edad = edad;
         this.idSede = idSede;
+        calificaciones = new ArrayList<>();
     }
+    
+    public void agregarCalificacion(double calificacion){
+        calificaciones.add(calificacion);
+    }
+    
+    
+    public double calcularPromedioDesempeno(){
+        var suma = 0.0;
+        
+        if (calificaciones.isEmpty()){
+            return 0.0;
+        }
+        
+        for (var calificacion : calificaciones){
+            suma += calificacion;
+        }
+        return suma / calificaciones.size();
+    }
+
     
     
     public String getNombre() {
