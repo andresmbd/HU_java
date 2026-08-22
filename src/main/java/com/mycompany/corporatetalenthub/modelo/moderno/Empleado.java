@@ -1,6 +1,7 @@
 
-package com.mycompany.corporatetalenthub.modelo;
+package com.mycompany.corporatetalenthub.modelo.moderno;
 
+import com.mycompany.corporatetalenthub.modelo.moderno.Persona;
 import java.util.ArrayList;
 import java.util.List;
 

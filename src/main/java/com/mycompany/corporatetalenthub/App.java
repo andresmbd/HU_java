@@ -1,5 +1,5 @@
 package com.mycompany.corporatetalenthub;
-import com.mycompany.corporatetalenthub.modelo.Empleado;
+import com.mycompany.corporatetalenthub.modelo.moderno.Empleado;
 import com.mycompany.corporatetalenthub.modelo.EmpresaRecord;
 import java.util.InputMismatchException;
 import java.util.Scanner;

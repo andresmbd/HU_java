@@ -1,5 +1,5 @@
 
-package com.mycompany.corporatetalenthub.modelo;
+package com.mycompany.corporatetalenthub.modelo.moderno;
 
 /**
  * Las Sealed Classes ofrecen mayor seguridad en el diseño de APIs
