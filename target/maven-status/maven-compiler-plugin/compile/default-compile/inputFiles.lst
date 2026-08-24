@@ -1,5 +1,13 @@
 C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\mycompany\corporatetalenthub\App.java
 C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\mycompany\corporatetalenthub\documentacion\NotasArquitectura.java
-C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\Empleado.java
-C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\EmpleadoManager.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\mycompany\corporatetalenthub\interfaces\Promocionable.java
 C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\EmpresaRecord.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\legacy\Desarrollador.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\legacy\Gerente.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\legacy\Persona.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\moderno\ConsultorExterno.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\moderno\Desarrollador.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\moderno\DesempenoReport.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\moderno\Empleado.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\moderno\Gerente.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\moderno\Persona.java

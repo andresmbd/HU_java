@@ -1,6 +1,14 @@
 package com.mycompany.corporatetalenthub;
+import com.mycompany.corporatetalenthub.interfaces.Promocionable;
 import com.mycompany.corporatetalenthub.modelo.moderno.Empleado;
 import com.mycompany.corporatetalenthub.modelo.EmpresaRecord;
+import com.mycompany.corporatetalenthub.modelo.moderno.DesempenoReport;
+
+import com.mycompany.corporatetalenthub.modelo.moderno.Desarrollador;
+import com.mycompany.corporatetalenthub.modelo.moderno.Gerente;
+import com.mycompany.corporatetalenthub.modelo.moderno.Persona;
+
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -9,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 public class App {
-    
+        
     private final static ArrayList <Empleado> empleados = new ArrayList<>();
     private final static HashMap <String, Empleado> empleadosId = new HashMap<>();
     
@@ -41,7 +49,7 @@ public class App {
     
 
     public static void main(String[] args) {
-        
+                
         String encabezado = """
                     _____________________________________  
                                   
@@ -122,6 +130,14 @@ public class App {
                         case 8:
                             mostrarReporteFinal(empleados);
                             break;
+                            
+                        case 9:
+                            reporteDesempeno(empleados);
+                            break;
+                            
+                        case 10:
+                            procesarPromocion(empleados);
+                            break;
 
                         case 0:
                             sistemaActivo = false;
@@ -152,9 +168,88 @@ public class App {
                 }
             } while (sistemaActivo);
         }
+       
+//        Desarrollador developer = new Desarrollador("Sebastian", 17, false, "Masculino", "Java");
+//        Gerente manager = new Gerente("Camila", 32, true, "Femenino", 12000000);
+        
+//        validacionLegacy(manager);
+//        validacionLegacy(developer);
+        
+//        Persona desarrollador = new Desarrollador("Michael", 14, false, "Masculino", "C#");
+//        Persona gerente = new Gerente("Sandra", 25, true, "Femenino", 34_000_500);
+        
+//        validacionModerna(gerente);
+//        validacionLegacy(desarrollador);
+        
         
         
     } 
+    
+    private static void procesarPromocion(List<Empleado> empleados){
+        if (empleados.isEmpty()){
+            System.out.println("No hay empleados para procesar bonos");
+            return;
+        }
+        
+        System.out.println("     EVALUACIÓN DE PROMOCIONES Y BONOS     ");
+        for (Empleado empleado : empleados){
+            if (empleado instanceof Desarrollador dev){
+                System.out.printf("Empleado: "+ dev.getNombre()+ 
+                        " | Id: "+dev.getIdEmpleado()+
+                        " | rol: " +dev.getRol() +
+                        " | Bono: %.2f%n", dev.calcularBonoAscenso());
+                dev.registrarLog();
+            }else if (empleado instanceof Gerente gte){
+                System.out.printf("Empleado: "+ gte.getNombre()+ 
+                        " | Id: "+gte.getIdEmpleado()+
+                        " | rol: " +gte.getRol() +
+                        " | Bono: %.2f%n", gte.calcularBonoAscenso());
+                gte.registrarLog();
+            }else 
+                System.out.println("Empleado: "+ empleado.getNombre()+
+                        " | Id: "+empleado.getIdEmpleado()+
+                        " | rol: "+empleado.getRol()+
+                        " | No aplica a cargos promocionables.");
+
+        }
+    }
+    
+    private static void validacionLegacy(Persona p){
+        
+        if (p instanceof Desarrollador){
+            Desarrollador dev = (Desarrollador) p;
+            System.out.println("Es un Desarrollador y su lenguaje Princial es "+ dev.getLenguajePrincipal());
+        
+        }else if (p instanceof Gerente){
+            Gerente gte = (Gerente) p;
+            System.out.println("Es un gerente y su presupuesto mensual es de $"+gte.getPresupuestoMensual());
+        }
+    }
+    
+    
+    private static void validacionModerna(Persona p){
+        if (p instanceof Desarrollador dev){
+            System.out.println("Es un Desarrollador y su lenguaje Princial es "+dev.getLenguajePrincipal());
+        }else if (p instanceof Gerente gte){
+            System.out.println("Es un Gerente y su presupuesto mensual es de $"+gte.getPresupuestoMensual());
+        }
+    }
+    
+    
+    private static void reporteDesempeno(List <Empleado> empleados){
+        System.out.println("    Reporte de Desempeño    ");
+        DesempenoReport reporte;
+        
+        for(Empleado empleado : empleados){
+            var promadioDesempeno = empleado.calcularPromedioDesempeno();
+            var idEmpleado = empleado.getIdEmpleado();
+            var feedback = empleado.getFeedback();
+            reporte = new DesempenoReport(idEmpleado, promadioDesempeno, feedback);
+            
+            System.out.printf("\nID Empleado: " + reporte.idEmpleado()+" | Promedio Desempeño: %.2f" 
+                            +"\nFeedback: %s%n", reporte.promedio(), reporte.feedback());
+        }
+    }
     
     private static double promediarSalarioEmpleados(List<Empleado> empleados){
         if(empleados.isEmpty()){
@@ -313,6 +408,7 @@ public class App {
         // Sem 2
         private static void mostrarMenu() {
             System.out.println("""
+                                  
                     _____________________________________
 
                             CORPORATE TALENT HUB
@@ -325,6 +421,8 @@ public class App {
                     6. Consultar Orden Empleados
                     7. Filtrar empleados con bajo puntaje
                     8. Mostrar reporte final
+                    9. Reporte de Desempeño
+                    10. Procesar Promociones y Bono
                     0. Salir
                     """);
         }
@@ -348,7 +446,9 @@ public class App {
             Scanner scanner,
             List<Empleado> empleados,
             Map<String, Empleado> empleadosId) {
-
+        
+        
+        
         System.out.print("ID positivo: ");
         var idEmpleado = scanner.nextInt();
         scanner.nextLine();
@@ -390,10 +490,44 @@ public class App {
             return false;
         }
         
-        var empleado = new Empleado(idEmpleado, nombre, edad, salario);
+        
+        System.out.print("\nSelecciona el rol del Empleado:"
+                + "\n1. Desarrollador"
+                + "\n2. Gerente"
+                + "\n3. Empleado en general"
+                + "\nOpcion: ");
+        var rol = scanner.nextInt();
+        scanner.nextLine();
+        
+        Empleado empleado;
+        
+        switch(rol){
+            case 1 ->{
+                System.out.print("Lenguaje principal: ");
+                var lenguaje = scanner.nextLine().trim();
+                empleado = new Desarrollador(idEmpleado ,nombre, edad, salario, lenguaje);
+                empleado.setRol("Desarrollador");
+            }
+            case 2 -> {
+                System.out.print("Presupuesto mensual: ");
+                var presupuesto = scanner.nextDouble();
+                scanner.nextLine();
+                empleado = new Gerente(idEmpleado, nombre, edad, salario, presupuesto);
+                empleado.setRol("Gerente");
+            }
+            case 3 -> {
+                empleado = new Empleado(idEmpleado, nombre, edad, salario);
+                empleado.setRol("Empleado geneal");
+            }
+            
+            default -> {
+                System.out.println("Opcion incorrecta");
+                return false;
+            }
+        }
         
         for(var trimestre = 0; trimestre < CANTIDAD_TRIMESTRES; trimestre++){
-            System.out.printf("Calificacion del trimestre %d : ", trimestre+1);
+            System.out.printf("\nCalificacion del trimestre %d : ", trimestre+1);
             var calificacion = scanner.nextDouble();
             
             if (calificacion < NOTA_MINIMA || calificacion > NOTA_MAXIMA){
@@ -402,8 +536,17 @@ public class App {
                 return false;
             }
             empleado.agregarCalificacion(calificacion);
-            
+            scanner.nextLine();
         }
+        System.out.print("\nFeedback: ");
+        var feedback = scanner.nextLine().trim();
+        
+        if (feedback.isBlank()){
+            feedback = "No hay comentarios de feedback";
+        }
+
+        
+        empleado.setFeedback(feedback);
         
         empleado.setPromedioDesempeno(empleado.calcularPromedioDesempeno());
         

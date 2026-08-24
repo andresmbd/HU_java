@@ -1,4 +1,13 @@
 com\mycompany\corporatetalenthub\App.class
+com\mycompany\corporatetalenthub\modelo\moderno\Empleado.class
 com\mycompany\corporatetalenthub\documentacion\NotasArquitectura.class
-com\mycompany\corporatetalenthub\modelo\Empleado.class
+com\mycompany\corporatetalenthub\interfaces\Promocionable.class
+com\mycompany\corporatetalenthub\modelo\moderno\DesempenoReport.class
+com\mycompany\corporatetalenthub\modelo\legacy\Desarrollador.class
+com\mycompany\corporatetalenthub\modelo\legacy\Gerente.class
+com\mycompany\corporatetalenthub\modelo\moderno\Gerente.class
+com\mycompany\corporatetalenthub\modelo\moderno\ConsultorExterno.class
+com\mycompany\corporatetalenthub\modelo\legacy\Persona.class
+com\mycompany\corporatetalenthub\modelo\moderno\Persona.class
 com\mycompany\corporatetalenthub\modelo\EmpresaRecord.class
+com\mycompany\corporatetalenthub\modelo\moderno\Desarrollador.class
