@@ -168,18 +168,6 @@ public class App {
                 }
             } while (sistemaActivo);
         }
-       
-//        Desarrollador developer = new Desarrollador("Sebastian", 17, false, "Masculino", "Java");
-//        Gerente manager = new Gerente("Camila", 32, true, "Femenino", 12000000);
-        
-//        validacionLegacy(manager);
-//        validacionLegacy(developer);
-        
-//        Persona desarrollador = new Desarrollador("Michael", 14, false, "Masculino", "C#");
-//        Persona gerente = new Gerente("Sandra", 25, true, "Femenino", 34_000_500);
-        
-//        validacionModerna(gerente);
-//        validacionLegacy(desarrollador);
         
         
         
@@ -214,27 +202,7 @@ public class App {
         }
     }
     
-    private static void validacionLegacy(Persona p){
-        
-        if (p instanceof Desarrollador){
-            Desarrollador dev = (Desarrollador) p;
-            System.out.println("Es un Desarrollador y su lenguaje Princial es "+ dev.getLenguajePrincipal());
-        
-        }else if (p instanceof Gerente){
-            Gerente gte = (Gerente) p;
-            System.out.println("Es un gerente y su presupuesto mensual es de $"+gte.getPresupuestoMensual());
-        }
-    }
-    
-    
-    private static void validacionModerna(Persona p){
-        if (p instanceof Desarrollador dev){
-            System.out.println("Es un Desarrollador y su lenguaje Princial es "+dev.getLenguajePrincipal());
-        }else if (p instanceof Gerente gte){
-            System.out.println("Es un Gerente y su presupuesto mensual es de $"+gte.getPresupuestoMensual());
-        }
-    }
-    
+
     
     private static void reporteDesempeno(List <Empleado> empleados){
         System.out.println("    Reporte de Desempeño    ");
@@ -568,44 +536,6 @@ public class App {
     }
     
    
- 
-//    private static void mostrarReporte(List<Empleado> empleados) {
-//
-//        if (empleados.size() == 0) {
-//            System.out.println("Todavía no hay empleados registrados.");
-//            return;
-//        }
-//
-//        System.out.println("\n   REPORTE DE DESEMPEÑO   ");
-//
-//        for (var empleado : empleados){
-//            var promedio = empleado.calcularPromedioDesempeno();
-//
-//            /*
-//             * Casting explícito de double a int. Se elimina la parte decimal, no
-//             * se redondea: 89.99 se convierte en 89. Esto implica pérdida de precisión.
-//             */
-//            var puntajeSimplificado = (int) promedio;
-//
-//            // Operador ternario: condición ? resultadoSiTrue : resultadoSiFalse.
-//            var estadoPromocion = promedio >= PROMEDIO_PARA_PROMOCION
-//                    ? "PROMOVIDO"
-//                    : "NO PROMOVIDO";
-//
-//            var categoria = obtenerCategoriaSalarial(
-//                    empleados[fila].getSalario());
-//
-//            System.out.printf(
-//                    "ID: %d | Nombre: %s | Promedio: %.2f | "
-//                            + "Simplificado: %d | Estado: %s | Categoría: %s%n",
-//                    empleados.get(),
-//                    empleados[fila].getNombre(),
-//                    promedio,
-//                    puntajeSimplificado,
-//                    estadoPromocion,
-//                    categoria);
-//        }
-//    }
 
 
     public static String obtenerCategoriaSalarial(double salario) {
