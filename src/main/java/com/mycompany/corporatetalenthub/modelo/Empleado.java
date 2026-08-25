@@ -1,6 +1,9 @@
 
 package com.mycompany.corporatetalenthub.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /***
  * Modelo tradicional Java 8
  * 
@@ -12,19 +15,21 @@ public class Empleado {
     //
     private byte nivelAcceso;
     private short anioIngreso;
-    private int idEmpleado;
+    private  int idEmpleado;
     private long numeroDocumento;
     private float puntajeTest;
-    private double salario;
+    private  double salario;
     private char tipoContrato;
     private boolean esActivo;
     
-    String nombre;
+    private  String nombre;
     private double bonusMensual;
-    private int edad;
+    private  int edad;
     private int idSede;
 
     private double promedioDesempeno;
+    private List<Double> calificaciones;
+    
     
     
     public Empleado(
@@ -43,14 +48,34 @@ public class Empleado {
         this.bonusMensual=bonusMensual;
         this.edad = edad;
         this.idSede = idSede;
+        calificaciones = new ArrayList<>();
     }
+    
+    public void agregarCalificacion(double calificacion){
+        calificaciones.add(calificacion);
+    }
+    
+    
+    public double calcularPromedioDesempeno(){
+        var suma = 0.0;
+        
+        if (calificaciones.isEmpty()){
+            return 0.0;
+        }
+        
+        for (var calificacion : calificaciones){
+            suma += calificacion;
+        }
+        return suma / calificaciones.size();
+    }
+
     
     
     public String getNombre() {
         return nombre;
     }
     
-    public void setNombre(String nombre){
+    public void setNombre(String nombre) {
         this.nombre=nombre;
     }
     
@@ -66,7 +91,7 @@ public class Empleado {
         return edad;
     }
     
-    public void setEdad(int edad){
+    public void setEdad(int edad) {
         this.edad=edad;
     }
     
@@ -99,7 +124,7 @@ public class Empleado {
         return idEmpleado;
     }
     
-    public void setIdEmpleado(byte idEmpleado){
+    public void setIdEmpleado(int idEmpleado){
         this.idEmpleado = idEmpleado;
     }
     
@@ -123,9 +148,10 @@ public class Empleado {
         return salario;
     }
     
-    public void setSalario(double salario){
+    public void setSalario(double  salario){
         this.salario = salario;
     }
+
     
     public char getTipoContrato() {
         return tipoContrato;
@@ -150,6 +176,8 @@ public class Empleado {
     public void setPromedioDesempeno(double promedioDesempeno) {
         this.promedioDesempeno = promedioDesempeno;
     }
+    
+    
     
     public double calcularSalarioFinal()
     {
