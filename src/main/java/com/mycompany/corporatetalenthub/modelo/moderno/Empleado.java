@@ -1,6 +1,7 @@
 
-package com.mycompany.corporatetalenthub.modelo;
+package com.mycompany.corporatetalenthub.modelo.moderno;
 
+import com.mycompany.corporatetalenthub.modelo.moderno.Persona;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * getters, setter y métodos explícitamente. Esa verbosidad es útil cuando el
  * objeto necesita estado mutable, como bonoMensual o nombre.
  */
-public class Empleado {
+public sealed class Empleado extends Persona permits Gerente, Desarrollador{
     //
     private byte nivelAcceso;
     private short anioIngreso;
@@ -29,11 +30,12 @@ public class Empleado {
 
     private double promedioDesempeno;
     private List<Double> calificaciones;
-    
+    private String feedback;
+    private String rol;
     
     
     public Empleado(
-            int idEmpleado, String nombre, byte nivelAcceso, double salario)
+            int idEmpleado, String nombre, int edad, double salario)
     {
         this.nivelAcceso = nivelAcceso;
         this.anioIngreso = anioIngreso;
@@ -49,7 +51,27 @@ public class Empleado {
         this.edad = edad;
         this.idSede = idSede;
         calificaciones = new ArrayList<>();
+        
     }
+    
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+    
+
+    public String getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
+    
+    
     
     public void agregarCalificacion(double calificacion){
         calificaciones.add(calificacion);
