@@ -14,6 +14,10 @@ public final class Desarrollador extends Empleado implements Promocionable{
         return lenguajePrincipal;
     }
 
+    public void setLenguajePrincipal(String lenguajePrincipal) {
+        this.lenguajePrincipal = lenguajePrincipal;
+    }
+
     @Override
     public double calcularBonoAscenso() {
         return getSalario() * 0.15;

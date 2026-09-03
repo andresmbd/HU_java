@@ -4,6 +4,7 @@ com\mycompany\corporatetalenthub\documentacion\NotasArquitectura.class
 com\mycompany\corporatetalenthub\interfaces\Promocionable.class
 com\mycompany\corporatetalenthub\modelo\moderno\DesempenoReport.class
 com\mycompany\corporatetalenthub\modelo\legacy\Desarrollador.class
+com\mycompany\corporatetalenthub\conexionbd\ConexionBD.class
 com\mycompany\corporatetalenthub\modelo\legacy\Gerente.class
 com\mycompany\corporatetalenthub\modelo\moderno\Gerente.class
 com\mycompany\corporatetalenthub\modelo\moderno\ConsultorExterno.class

@@ -19,4 +19,9 @@ public final class Gerente extends Empleado implements Promocionable{
     public double getPresupuestoMensual() {
         return presupuestoMensual;
     }
+
+    public void setPresupuestoMensual(double presupuestoMensual) {
+        this.presupuestoMensual = presupuestoMensual;
+    }
+    
 }
