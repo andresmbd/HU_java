@@ -53,6 +53,15 @@ public sealed abstract class Empleado extends Persona permits Gerente, Desarroll
         calificaciones = new ArrayList<>();
         
     }
+
+    public List<Double> getCalificaciones() {
+        return calificaciones;
+    }
+
+    public void setCalificaciones(List<Double> calificaciones) {
+        this.calificaciones = calificaciones;
+    }
+    
     
     public void setRol(String rol) {
         this.rol = rol;

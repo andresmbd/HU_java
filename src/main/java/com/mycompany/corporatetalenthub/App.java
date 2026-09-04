@@ -1,13 +1,8 @@
 package com.mycompany.corporatetalenthub;
-import com.mycompany.corporatetalenthub.interfaces.Promocionable;
 import com.mycompany.corporatetalenthub.modelo.moderno.Empleado;
-import com.mycompany.corporatetalenthub.modelo.EmpresaRecord;
 import com.mycompany.corporatetalenthub.modelo.moderno.DesempenoReport;
-
 import com.mycompany.corporatetalenthub.modelo.moderno.Desarrollador;
 import com.mycompany.corporatetalenthub.modelo.moderno.Gerente;
-import com.mycompany.corporatetalenthub.modelo.moderno.Persona;
-
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -50,30 +45,7 @@ public class App {
 
     public static void main(String[] args) {
                 
-        String encabezado = """
-                    _____________________________________  
-                                  
-                            Corporate Talent Hub
-                         Gestion del talento humano
-                    _____________________________________
-                            """;
-                
-        Empleado empleado = crearEmpleado();
-        EmpresaRecord empresa = crearEmpresa();
-        double extra = empleado.bonoExtra(56.5);
-        String elegible = (empleado.validarElegibilidad())? "Sí":"No";
-        
-        System.out.println(encabezado);
-        System.out.println("Empresa "+empresa.nombre());
-        System.out.println("Empleado "+empleado.getNombre());
-        System.out.println("Bono extra si id es par "+extra);
-        System.out.println("Salario neto "+empleado.calcularSalarioFinal());
-        System.out.println("Empleado elegible? "+elegible);
-        
 
-        
-        laboratorioDeNullExeption(empleado);
-        comparacionDeObjetos();
 
 
         try (var scanner = new Scanner(System.in)) {
@@ -374,41 +346,41 @@ public class App {
     
 
         // Sem 2
-        private static void mostrarMenu() {
-            System.out.println("""
-                                  
-                    _____________________________________
+    private static void mostrarMenu() {
+        System.out.println("""
 
-                            CORPORATE TALENT HUB
-                    _____________________________________
-                    1. Registrar empleado
-                    2. Eliminar Empleado
-                    3. Listar Empleados
-                    4. Buscar Empleado
-                    5. Consultar tegnologias y sedes
-                    6. Consultar Orden Empleados
-                    7. Filtrar empleados con bajo puntaje
-                    8. Mostrar reporte final
-                    9. Reporte de Desempeño
-                    10. Procesar Promociones y Bono
-                    0. Salir
-                    """);
+                _____________________________________
+
+                        CORPORATE TALENT HUB
+                _____________________________________
+                1. Registrar empleado
+                2. Eliminar Empleado
+                3. Listar Empleados
+                4. Buscar Empleado
+                5. Consultar tegnologias y sedes
+                6. Consultar Orden Empleados
+                7. Filtrar empleados con bajo puntaje
+                8. Mostrar reporte final
+                9. Reporte de Desempeño
+                10. Procesar Promociones y Bono
+                0. Salir
+                """);
+    }
+
+    private static void mostrarConfiguracion(
+    List<String> tegnologias,
+    Map<String, String> sedes){
+        System.out.println("---TEGNOLOGIAS---");
+        for(var tecnologia: tecnologias){
+            System.out.println("- "+ tecnologia);
         }
-    
-        private static void mostrarConfiguracion(
-        List<String> tegnologias,
-        Map<String, String> sedes){
-            System.out.println("---TEGNOLOGIAS---");
-            for(var tecnologia: tecnologias){
-                System.out.println("- "+ tecnologia);
-            }
-            System.out.println("---SEDES---");
-            for(var sede : sedes.entrySet()){
-                String key = sede.getKey();
-                String value = sede.getValue();
-                System.out.println(key+" - "+value);
-            }
+        System.out.println("---SEDES---");
+        for(var sede : sedes.entrySet()){
+            String key = sede.getKey();
+            String value = sede.getValue();
+            System.out.println(key+" - "+value);
         }
+    }
 
     private static boolean registrarEmpleado(
             Scanner scanner,
@@ -462,7 +434,6 @@ public class App {
         System.out.print("\nSelecciona el rol del Empleado:"
                 + "\n1. Desarrollador"
                 + "\n2. Gerente"
-                + "\n3. Empleado en general"
                 + "\nOpcion: ");
         var rol = scanner.nextInt();
         scanner.nextLine();
@@ -482,10 +453,6 @@ public class App {
                 scanner.nextLine();
                 empleado = new Gerente(idEmpleado, nombre, edad, salario, presupuesto);
                 empleado.setRol("Gerente");
-            }
-            case 3 -> {
-                empleado = new Empleado(idEmpleado, nombre, edad, salario);
-                empleado.setRol("Empleado geneal");
             }
             
             default -> {
@@ -580,60 +547,5 @@ public class App {
                 """);
     }
     
-
-    
-    // Sem 1
-
-     public static Empleado crearEmpleado()
-        {
-            return new Empleado(
-                    3, 
-                    "Andres Barrios", 
-                    (byte)4, 
-                    570_000);
-        }
-     
-     public static EmpresaRecord crearEmpresa()
-     {
-         return new EmpresaRecord("EduFlow", "123764499", 4);
-     }
-     
-     public static void laboratorioDeNullExeption(Empleado empleado){
-        // Java 8 normalmente informa que ocurrió una NullPointerException y señala
-        // la línea mediante el stack trace, pero una expresión encadenada puede hacer
-        // difícil reconocer cuál referencia era null.
-        // Desde Java 14, Helpful NullPointerExceptions puede indicar que no se pudo
-        // invocar length() porque el resultado de getNombre() era null.
-        Empleado emp=crearEmpleado();
-         try 
-         {
-             emp.setNombre(null);
-             System.out.println(emp.getNombre().length());
-         } catch (Exception e) 
-         {
-             System.out.println("Excepcion de null: " + e.getMessage());
-         }
-         // El try/catch es solo para que el laboratorio no detenga toda la aplicación; 
-    }
-     
-     public static void comparacionDeObjetos()
-     {
-        // == no compara los atributos de los objetos: comprueba si ambas variables
-        // se refieren exactamente al mismo objeto. empleado1 y empleado2 se crearon con
-        // new por separado;
-         
-         Empleado empleado1 = crearEmpleado();
-         Empleado empleado2 = crearEmpleado();
-         Empleado empleado3 = empleado1;
-         
-         boolean igual = (empleado1 == empleado2);        
-         
-         System.out.println("Apuntan al mismo objeto en memoria empleado1 y empleado2? " +igual);
-         System.out.println("Apuntan al mismo objeto en memoria empleado1 y empleado3? " +(empleado3==empleado1));
-         
-        // empleado3 recibió la misma referencia de primero.
-        // Conceptualmente los objetos viven en el Heap, pero == no debe entenderse
-        // como una comparación manual de direcciones físicas de memoria.
-     }
             
 }

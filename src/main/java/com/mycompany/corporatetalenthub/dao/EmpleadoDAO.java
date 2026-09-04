@@ -9,5 +9,5 @@ public interface EmpleadoDAO {
     boolean guardarEmpleado(Empleado empleado);
     List<Empleado> listarTodos();
     boolean actulizarEmpleado(Empleado empleado);
-    boolean eliminarEmpleado(int id);
+    boolean eliminarEmpleado(int idEmpleado);
 }
