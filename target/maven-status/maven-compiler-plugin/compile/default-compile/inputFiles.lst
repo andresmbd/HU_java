@@ -1,14 +1,10 @@
-C:\Users\Cohorte 5\Documents\ra-AndresBarrios\HU_java\src\main\java\com\mycompany\corporatetalenthub\App.java
-C:\Users\Cohorte 5\Documents\ra-AndresBarrios\HU_java\src\main\java\com\mycompany\corporatetalenthub\conexionbd\ConexionBD.java
-C:\Users\Cohorte 5\Documents\ra-AndresBarrios\HU_java\src\main\java\com\mycompany\corporatetalenthub\documentacion\NotasArquitectura.java
-C:\Users\Cohorte 5\Documents\ra-AndresBarrios\HU_java\src\main\java\com\mycompany\corporatetalenthub\interfaces\Promocionable.java
-C:\Users\Cohorte 5\Documents\ra-AndresBarrios\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\EmpresaRecord.java
-C:\Users\Cohorte 5\Documents\ra-AndresBarrios\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\legacy\Desarrollador.java
-C:\Users\Cohorte 5\Documents\ra-AndresBarrios\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\legacy\Gerente.java
-C:\Users\Cohorte 5\Documents\ra-AndresBarrios\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\legacy\Persona.java
-C:\Users\Cohorte 5\Documents\ra-AndresBarrios\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\moderno\ConsultorExterno.java
-C:\Users\Cohorte 5\Documents\ra-AndresBarrios\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\moderno\Desarrollador.java
-C:\Users\Cohorte 5\Documents\ra-AndresBarrios\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\moderno\DesempenoReport.java
-C:\Users\Cohorte 5\Documents\ra-AndresBarrios\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\moderno\Empleado.java
-C:\Users\Cohorte 5\Documents\ra-AndresBarrios\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\moderno\Gerente.java
-C:\Users\Cohorte 5\Documents\ra-AndresBarrios\HU_java\src\main\java\com\mycompany\corporatetalenthub\modelo\moderno\Persona.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\riwi\talent\App.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\riwi\talent\conexionbd\ConexionBD.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\riwi\talent\controller\EmpleadoController.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\riwi\talent\modelo\dao\EmpleadoDAO.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\riwi\talent\modelo\dao\EmpleadoDAOImpl.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\riwi\talent\modelo\Desarrollador.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\riwi\talent\modelo\Empleado.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\riwi\talent\modelo\Gerente.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\riwi\talent\modelo\record\DesempenoReport.java
+C:\Users\USUARIO\OneDrive\Documentos\NetBeansProjects\HU_java\src\main\java\com\riwi\talent\view\EmpleadoView.java
